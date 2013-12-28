@@ -30,6 +30,11 @@ module Correspond
       json headers: Hash[headers]
     end
 
+    get '/get' do
+      headers = extract_headers(request)
+      json headers: Hash[headers]
+    end
+
     # / This page.
     # /ip Returns Origin IP.
     # /user-agent Returns user-agent.
