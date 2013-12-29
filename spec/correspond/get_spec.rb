@@ -15,15 +15,17 @@ describe App, '/get' do
   it "returns the request URL" do
     get '/get'
 
-    expect(response_json).to have_key('url')
-    expect(response_json['url']).to eq('http://example.org/get')
+    expect(last_response)
+      .to be_json_with_key('url')
+      .and_value('http://example.org/get')
   end
 
   it "returns the originating IP address" do
     get '/get'
 
-    expect(response_json).to have_key('origin')
-    expect(response_json['origin']).to eq('127.0.0.1')
+    expect(last_response)
+      .to be_json_with_key('origin')
+      .and_value('127.0.0.1')
   end
 
   it "returns the request headers" do
@@ -32,8 +34,9 @@ describe App, '/get' do
     expected_headers = {'Host' => 'example.org',
                         'Cookie' => ''}
 
-    expect(response_json).to have_key('headers')
-    expect(response_json['headers']).to eq(expected_headers)
+    expect(last_response)
+      .to be_json_with_key('headers')
+      .and_value(expected_headers)
   end
 
   it "returns the request arguments" do
@@ -42,7 +45,8 @@ describe App, '/get' do
     expected_args = {'name' => 'alice',
                      'group' => 'staff'}
 
-    expect(response_json).to have_key('args')
-    expect(response_json['args']).to eq(expected_args)
+    expect(last_response)
+      .to be_json_with_key('args')
+      .and_value(expected_args)
   end
 end
