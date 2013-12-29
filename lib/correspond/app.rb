@@ -31,6 +31,14 @@ module Correspond
            args: request.params
     end
 
+    post '/post' do
+      headers = extract_headers(request)
+      json url: request.url,
+           origin: request.ip,
+           headers: headers,
+           args: request.params
+    end
+
     # / This page.
     # /ip Returns Origin IP.
     # /user-agent Returns user-agent.
