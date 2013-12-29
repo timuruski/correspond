@@ -10,11 +10,11 @@ end
 require 'rack/test'
 
 module Correspond
-  module AppTestMethods
+  module RoutesTestHelpers
     include Rack::Test::Methods
 
-    def response_json
-      JSON.parse(last_response.body)
+    def self.included(base)
+      base.let(:app) { Correspond::App.new }
     end
   end
 end

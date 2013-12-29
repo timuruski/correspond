@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 describe App, '/get' do
-  include AppTestMethods
-
-  let(:app) { Correspond::App.new }
+  include RoutesTestHelpers
   include_examples "basic REST response", :get, '/get'
 
   it "returns the request arguments" do

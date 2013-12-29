@@ -43,12 +43,12 @@ module Correspond
     # /ip Returns Origin IP.
     # /user-agent Returns user-agent.
     # /headers Returns header dict.
+    #
     # /get Returns GET data.
     # /post Returns POST data.
     # /put Returns PUT data.
     # /patch Returns PATCH data.
     # /delete Returns DELETE data
-    # /gzip Returns gzip-encoded data.
 
 
     get '/pry' do
